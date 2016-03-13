@@ -34,7 +34,7 @@
 		<![endif]-->
 		
 		<style>
-			img.displayimage {width: 600px;}
+			img.displayimage {height: 500px;}
 		</style>
 	</head>
 
@@ -94,15 +94,15 @@
 						<img class="displayimage" src="map2.jpg">
 					</section>
 					<section>
-						<h2>Road map</h2>
+						<h3>Road map</h3>
 						<img class="displayimage" src="sofiamap.png">
 					</section>
 					<section>
-						<h2>World map</h2>
+						<h3>World map</h3>
 						<img class="displayimage" src="worldmap.jpg">
 					</section>
 					<section>
-						<h2>Population map</h2>
+						<h3>Population map</h3>
 						<img class="displayimage" src="populationmap_europe.gif">
 					</section>
 				</section>
@@ -146,7 +146,122 @@
 				</section>
 				
 				<section>
-					<h2>Bird eye over technology stack</h2>
+					<section>
+						<h2>Bird eye over map technology stack</h2>
+						<img class="displayimage" src="technology_stack.png">
+					</section>
+					<section>
+						<h3>Data</h3>
+						<p>Not an image. For an example a street on road map
+						can be represented as polyline with several attributes.
+						</p>
+						<img src="line-vector.png">
+					</section>
+					<section>
+						<h3>Rendering</h3>
+						<p>Convert data to an image. Each feature is "drawn"
+						to a layer of the map.</p>
+						<p>Drawing rules for each feature type are configured.
+						These can be: line width, line color, text, etc.</p>
+					</section>
+					<section>
+						<h3>Rendering</h3>
+						<img class="displayimage" src="line_2_street.png">
+					</section>
+					<section>
+						<h3>Layers</h3>
+						<p>Each layer contains set of features. Layers are placed on top of each other.</p>
+						<img src="layers.jpg">
+					</section>
+					<section>
+						<h3>Layers</h3>
+						<img src="layers2.jpg">
+					</section>
+					<section>
+						<h3>Tile map / Slippy map</h3>
+						<img src="tiles.jpg">
+					</section>
+					<section>
+						<h3>In the browser</h3>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Geospatial data</h2>
+						<h3>Definition</h3>
+						<p>Data that identifies geographic locations of features on Earth. 
+							These can be natural or constructed features, oceans, continents, 
+							rivers, cities, restaurants, stores, etc.</p>
+						<p>Geospatial data, GIS data or geodata has explicit geographic positioning 
+							information included within it.</p>
+					</section>
+					<section>
+						<h3>Raster data</h3>
+					</section>
+					<section>
+						<h3>Vector data</h3>
+					</section>
+					<section>
+						<h3>Features</h3>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>File formats</h2>
+						<ul>
+							<li>Shapefiles</li>
+							<li>GeoJSON</li>
+							<li>KML</li>
+							<li>OSM</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Shapefiles</h3>
+						<p>Binary format developed by ESRI. The main file types have the suffixes .shp, .shx and .dbf, 
+							but there are several more.</p>
+						<p>Contains vector data organized as features placed in layers. Each feature has geometry and 
+						other attributes.</p>
+					</section>
+					<section>
+						<h3>Work with shapefiles</h3>
+						<ul>
+							<li>ArcGIS suite</li>
+							<li>QGIS</li>
+							<li>GDAL/OGR libraries, ogr2ogr utility</li>
+						</ul>
+					</section>
+					<section>
+						<h3>GeoJSON</h3>
+						<p>GeoJSON is a format for encoding a variety of geographic data structures.</p>
+						<p>Based on well known JSON file format.</p>
+					</section>
+					<section>
+						<h3>Some taste of GeoJSON</h3>
+						<pre><code class="hljs" data-trim contenteditable>
+{
+  "type": "Feature",
+  "geometry": {
+	"type": "Point",
+	"coordinates": [125.6, 10.1]
+  },
+  "properties": {
+	"name": "Dinagat Islands"
+  }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>KML</h3>
+						<p>Developed by Keyhole, later bought by Google. The file format is based
+						on XML. The file contained both: geographic data and style, which instruct browser
+						how to render data.</p>
+						<p>KML is now open standard.</p>
+					</section>
+				</section>
+				<section>
+					<h3> Sources of geospatial data</h3>
 				</section>
 			</div>
 
