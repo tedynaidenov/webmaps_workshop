@@ -105,6 +105,12 @@
 						<h3>Population map</h3>
 						<img class="displayimage" src="populationmap_europe.gif">
 					</section>
+					<section>
+						<h3>And a map is ...</h3>
+						<p>Collection of features (objects) with geographical locations,
+						   projected on flat surface. 
+						</p>
+					</section>
 				</section>
 				
 				<section>
@@ -183,6 +189,7 @@
 					</section>
 					<section>
 						<h3>In the browser</h3>
+						<img class="displayimage" src="leaflet.png">
 					</section>
 				</section>
 				
@@ -197,13 +204,61 @@
 							information included within it.</p>
 					</section>
 					<section>
-						<h3>Raster data</h3>
+						<h3>Raster geospatial data</h3>
+						<p>In raster data the entire area of the map is subdivided into a grid of tiny cells. 
+							A value is stored in each of these cells to represent the nature of whatever 
+							is present at the corresponding location on the ground. Raster data can be 
+							thought of as a matrix of values.</p>
+						<p>Examples for raster geospatial data:</p>
+						<ul>
+							<li>Satellite image</li>
+							<li>Digital Elevation Model (DEM)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Satellite data</h3>
+						<img src="satelite_image.jpg">
+					</section>
+					<section>
+						<h3>Digital elevation model</h3>
+						<img src="dem.gif">
+					</section>
+					<section>
+						<h3>Raster geospatial data also includes</h3>
+						<p>Beside raster band, raster geospatial data includes
+						coordinate system and transformation.</p>
+						<img src="raster_data_transform.gif">
 					</section>
 					<section>
 						<h3>Vector data</h3>
+						<p>In vector data the features are recorded one by one, with shape being defined by 
+							the numerical values of the pairs of xy coordinates.</p>
+						<ul>
+							<li>A point is defined by a single pair of coordinate values</li>
+							<li>A line is defined by a sequence of coordinate pairs defining the 
+								points through which the line is drawn</li>
+							<li>An area (polygon) is defined in a similar way, only with the 
+								first and last points joined to make a complete enclosure. </li>
+						</ul>
 					</section>
 					<section>
-						<h3>Features</h3>
+						<h3>Vector data</h3>
+						<img src="vector_daya.gif">
+					</section>
+					<section>
+						<h3>Feature</h3>
+						<p>A feature is representation of real world object on a map.</p>
+						<ul>
+							<li>geometry - spatial representation, which consists of points, lines,
+							polygons, multipoints, multilines, etc</li>
+							<li>attributes - additional properties related to corresponding feature</li>
+						</ul>
+						<p>Each feature has a type (class), which determines type of geometry and set of 
+						attributes. Features with same class can be combined into collections.</p>
+					</section>
+					<section>
+						<h3>Feature</h3>
+						<img src="feature.gif">
 					</section>
 				</section>
 				
@@ -259,9 +314,129 @@
 						how to render data.</p>
 						<p>KML is now open standard.</p>
 					</section>
+					<section>
+						<h3>WKT and WKB</h3>
+						<ul>
+							<li>POINT(15 20)</li>
+							<li>LINESTRING(0 0, 10 10, 20 25, 50 60)</li>
+							<li>GEOMETRYCOLLECTION(POINT(10 10), POINT(30 30), LINESTRING(15 15, 20 20))</li>
+						</ul>
+					</section>
 				</section>
 				<section>
-					<h3> Sources of geospatial data</h3>
+					<section>
+						<h3>Spatial Databases</h3>
+						<p>Spatially enabled database is database system, which is aware of the notion of space
+						and direct interaction with spatial objects and concepts</p>
+					</section>
+					<section>
+						<h3>Spatial datatype & indexes</h3>
+						<p>Spatial databases can store points, lines, polygons, etc directly 
+							in the database in the form of geometry columns.</p>
+						<p>Spatial databases support index on geometry columns, which 
+							dramatically speeds up lookup operations</p>
+					</section>
+					<section>
+						<h3>Spatial datatype in DB table</h3>
+						<img src="SpatialDB_table.jpg">
+					</section>
+					<section>
+						<h3>Spatial operators/functions</h3>
+						<p>Spatially enabled databases support large set of operators, which can be used
+						in queries such as: contains, intersects, crosses, closest point and many more.</p>
+					</section>
+					<section>
+						<h3>Spatial databases</h3>
+						<ul>
+							<li>PostGIS (PostgreSQL)</li>
+							<li>MySQL</li>
+							<li>SpatiaLite (SQLite)</li>
+							<li>MongoDB</li>
+							<li>Oracle</li>
+							<li>MS SQL Server</li>
+							<li>CartoDB (SaaS, based on PostGIS)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Reasons to use spatial database</h3>
+						<p>Files with spatial data allow effective storage of large amount of information, 
+						but are very inefficient regarding finding any interaction between features</p>
+						<p>Spatial databases can save the day for any GIS application, which needs to 
+						operate effectively with features. Typical example: find all features, which are
+						contained in rectangle with some coordinates.
+						</p>
+					</section>
+					<section>
+						<h3>Get all features inside a rectangle</h3>
+						<img class="displayimage" src="SpatialDB_bbox.jpg">
+					</section>
+					<section>
+						<h3>Find a route</h3>
+						<img class="displayimage" src="SpatialDB_route.jpg">
+					</section>
+				</section>
+				<section>
+					<h3>Sources of geospatial data</h3>
+					<ul>
+						<li>Openstreet Map</li>
+						<li>Natural Earth</li>
+						<li>World Borders Dataset</li>
+						<li>GeoHive</li>
+						<li>OpenWeatherMap (API)</li>
+						<li>Landsat</li>
+						<li>Global Land One-kilometer Base Elevation (GLOBE)</li>
+					</ul>
+					<p>
+					Have a look at Wikipedia: 
+					<a target="_blank" href="https://en.wikipedia.org/wiki/List_of_GIS_data_sources">List of GIS data sources</a>
+				</section>
+				<section>
+					<section>
+						<h3>Coordinates and projections</h3>
+						<p>Geographical coordinate system is method for describing geographical location
+						on Earth's surface, using measures of latitude and longitude.</p>
+						<img src="geo_coordinate.gif">
+					</section>
+					<section>
+						<h3>Datum</h3>
+						<p>Datum is mathematical model that approximates the shape of the Earth, which is quite uneven and complex. 
+						Datum is used along with coordinate system for accurate position, length and area calculations.</p>
+						<a target="_blank" href="https://www.youtube.com/watch?v=xKGlMp__jog">A Simple Explanation of Datum (Youtube)</a>
+						<p>One of the most widely used global datum is WGS84.</p>
+					</section>
+					<section>
+						<h3>Datum</h3>
+						<img src="Different_datums.png">
+					</section>
+					<section>
+						<h3>Projection</h3>
+						A projection is a series of transformations which convert the location of points on a curved 
+						surface(i.e. datum) to locations on flat plane (ie transforms coordinates 
+						from one coordinate reference system to another).
+					</section>
+					<section>
+						<h3>Different projections</h3>
+						<img class="displayimage" src="projection_families.png">
+					</section>
+					<section>
+						<h3>Geographic projection</h3>
+						A.k.a. equirectangular projection or plate carrée projection.
+						<img class="displayimage" src="Equirectangular_projection_SW.jpg">
+					</section>
+					<section>
+						<h3>WGS84 Web Mercator</h3>
+						<p>Defacto standard in web mapping. EPSG code: EPSG:3857.</p>
+						<img class="displayimage" src="web_mercator_projection.jpg">
+					</section>
+					<section>
+						<h3>Projection distortion</h3>
+						<p>Each projection from Earth's surface to flat surface impose some distortions.</p>
+						<img class="displayimage" src="Tissot_mercator.png">
+					</section>
+					<section>
+						<h3>Projection distortion</h3>
+						<img class="displayimage" src="Tissot_equirectangular.png">
+					</section>
 				</section>
 			</div>
 
