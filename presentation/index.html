@@ -34,7 +34,10 @@
 		<![endif]-->
 		
 		<style>
-			img.displayimage {height: 500px;}
+			img.displayimage {
+				max-height: 500px;
+				max-width: 700px;
+			}
 		</style>
 	</head>
 
@@ -438,6 +441,107 @@
 						<h3>Projection distortion</h3>
 						<img class="displayimage" src="Tissot_equirectangular.png">
 					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Rendering</h3>
+						<p>Raw geospatial data can be meaningless for human eye. Rendering
+						is the process, which transforms raw data to another form (i.e. image),
+						which can be understood hy humans.</p>
+						<p>Rendering can be quite complex process, depending on the nature
+						of the data and desired map look and feel.</p>
+					</section>
+					<section>
+						<h3>Rendering flow</h3>
+						<p>The inputs are</p>
+						<ul>
+							<li>geospatial data - vector or raster, described in some formats. 
+								Spatial reference (i.e. coordinate system and datum) are integral 
+								part of data.</li>
+							<li>configuration - determines how features will be drawn on the image,
+								i.e. colors, brushes, fonts, etc. It is common to place different
+								feature types in seperate layers.</li>
+							<li>map properties - projection, envelope, file format.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Redering flow diagram</h3>
+						<img src="Rendering%20flow.png">
+					</section>
+					<section>
+						<h3>Where rendering happens</h3>
+						<p>Generaly it depends on type of application. For web maps,
+						we have following options.</p>
+						<ul>
+							<li>on the server - creating the base layer, which very complex
+							and includes a lot of features.</li>
+							<li>browser - with the help of javascript library. Used to 
+							provide additional information on the top of the base layer.</li>
+						</ul>
+						<p>
+						For some interactive web maps, which lack base layer, rendering can be 
+						performed entirely in the browser.</p>
+					</section>
+					<section>
+						<h3>Base layer and other information</h3>
+						<img src="baselayer_overlay.png">
+					</section>
+					<section>
+						<h3>Base layer and other information</h3>
+						<img src="baselayer_overlay2.png">
+					</section>
+					<section>
+						<h3>Rendering on the server</h3>
+						<p>Appropriate for complex maps, which includes a lot of features. 
+							Most popular toolkits:</p>
+						<ul>
+							<li>Mapnik - probably the famous rendering toolkit. It is written in C++,
+								but has bindings for Pythons and Javascript</li>
+							<li>Geotools - Java based GIS toolkit. Besides rendering a map, it offers
+							a bunch of other tools for manipulating GIS data</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Mapnik architecture</h3>
+						<img class="displayimage" src="mapnik.jpg">
+					</section>
+					<section>
+						<h3>Mapnik datasources</h3>
+						<p>Mapnik is very flexible regarding sources of data. They can be:</p>
+						<ul>
+							<li>Shapefile</li>
+							<li>PostGIS/SQLite</li>
+							<li>OSM (XML)</li>
+							<li>Raster image</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Rendering in the browser</h3>
+						<p>
+						Drawing is performed by javascript library. The geospatial data comes 
+						in GeoJSON, CSV, WKT or other "micro" format.</p>
+						<p>Relatively easy to configure, but has limitations 
+						regarding data amount and performance.</p>	
+					</section>
+					<section>
+						<h3>JS libraries</h3>
+						<ul>
+							<li>Google Maps API</li>
+							<li>Leaflet</li>
+							<li>Open Layers</li>
+							<li>D3js</li>
+						</ul>
+					</section>
+					<section>
+						<h3>JS libraries capabilities</h3>
+						<p>Despite of being simpler than server renderer toolkits, JS client libraries
+						give a lot of functionality for developer including manipulation of features,
+						coordinates, projections, renderer styles and many more.</p>
+						<p>They allows to use base layer, rendered on the server plus additional features,
+						rendered in the browser.</p>
+						<p>JS libraries are inevitable for every kind of interactivity of the map!</p>
+					</section>
+					
 				</section>
 			</div>
 
