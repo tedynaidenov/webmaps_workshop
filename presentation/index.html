@@ -539,9 +539,59 @@
 						coordinates, projections, renderer styles and many more.</p>
 						<p>They allows to use base layer, rendered on the server plus additional features,
 						rendered in the browser.</p>
-						<p>JS libraries are inevitable for every kind of interactivity of the map!</p>
+						<p>JS libraries are inevitable for every kind of interactivity of the web map!</p>
 					</section>
-					
+				</section>
+				<section>
+					<section>
+						<h3>Map tiling</h3>
+						<p>The continuous image of the world is divided to small square images called tiles.</p>
+						<img src="map_tiles.png">
+					</section>
+					<section>
+						<h3>Zoom level</h3>
+						<ul>
+							<li>Zoom in - more details, but smaller area is shown.</li>
+							<li>Zoom out - less detail, but larger area is shown.</li>
+						</ul>
+						<p>Map scale depends not only on zoom level, but on monitor DPI aswell.</p>
+					</section>
+					<section>
+						<h3>Tile pyramid</h3>
+						<p>For each map "zoom level, there is separate layer of tiles</p>
+						<img class="displayimage" src="TilePyramid.jpg">
+					</section>
+					<section>
+						<h3>Tile numbering</h3>
+						<p>Each tile has coordinates, which depends on zoom level.
+						For zoom level 2, tiles look like this:</p>
+						<img class="displayimage" src="tile_coordinates.png">
+					</section>
+					<section>
+						<h3>Tile caching</h3>
+						<p>Tile rendering is relatively cpu intensive process. Since most geospatial
+						data remains unchanged for a long period of time, it is effective to cache
+						rendered tiles.</p>
+					</section>
+					<section>
+						<h3>Protocols for tile transfer</h3>
+						<p>Currently, the mostly used protocol for transfering tiles from server to client
+						is HTTP with REST API. The common URL pattern looks like:</p>
+						<pre><code class="hljs" data-trim contenteditable>
+http://{tile_server}/{z}/{x}/{y}.png
+						</code></pre>
+						where:<br>
+						{z} = zoom level<br>
+						{x},{y} = tile number 
+					</section>
+					<section>
+						<h3>End to end server solutions</h3>
+						<ul>
+							<li>Geoserver</li>
+							<li>Mapnik + TileCache</li>
+							<li>Mapserver</li>
+						</ul>
+					</section>
 				</section>
 			</div>
 
