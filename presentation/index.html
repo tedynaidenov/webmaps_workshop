@@ -57,21 +57,13 @@
 
 				<section>
 					<h2>Agenda</h2>
-					<ul>
-						<li>Session 1</li>
 						<ul>
 							<li>Technology overview</li>
 							<li>Q&A session</li>
 							<li>Break</li>
 							<li>Hands on</li>
 						</ul>
-						<li>Session 2</li>
-						<ul>
-							<li>Hands on</li>
-						</ul>
-					</ul>
 				</section>
-				
 				<section>
 					<h2>What this workshop is:</h2>
 					<ul>
@@ -81,7 +73,6 @@
 						<li>chance to have some fun</li>
 					</ul>
 				</section>
-				
 				<section>
 					<h2>What this workshop is not:</h2>
 					<ul>
@@ -90,7 +81,6 @@
 						<li>boring lecture to let you have a nap</li>
 					</ul>
 				</section>
-				
 				<section>
 					<section>
 						<h2>What is a map?</h2>
@@ -127,7 +117,7 @@
 					</section>
 					<section>
 						<h2>Want to see antoher shiny example in action...</h2>
-						<a class="fragment" href="http://d3.artzub.com/wbca/" target="_blank">WorldBank Contract Awards</a>
+						<a class="fragment" href="http://d3.artzub.com/wbca/" target="_blank">WorldBank Contract Awards</a><br>
                         <a class="fragment" href="http://earth.nullschool.net/" target="_blank">Eart weather conditions</a>
 					</section>
 					<section>
@@ -334,14 +324,14 @@
 						and direct interaction with spatial objects and concepts</p>
 					</section>
 					<section>
-						<h3>Spatial datatype & indexes</h3>
+						<h3>Spatial data types & indexes</h3>
 						<p>Spatial databases can store points, lines, polygons, etc directly 
 							in the database in the form of geometry columns.</p>
 						<p>Spatial databases support index on geometry columns, which 
 							dramatically speeds up lookup operations</p>
 					</section>
 					<section>
-						<h3>Spatial datatype in DB table</h3>
+						<h3>Spatial data types in DB table</h3>
 						<img src="images/SpatialDB_table.jpg">
 					</section>
 					<section>
@@ -415,7 +405,7 @@
 					<section>
 						<h3>Projection</h3>
 						A projection is a series of transformations which convert the location of points on a curved 
-						surface(i.e. datum) to locations on flat plane (ie transforms coordinates 
+						surface(i.e. datum) to locations on flat plane (i.e. transforms coordinates 
 						from one coordinate reference system to another).
 					</section>
 					<section>
@@ -447,7 +437,7 @@
 						<h3>Rendering</h3>
 						<p>Raw geospatial data can be meaningless for human eye. Rendering
 						is the process, which transforms raw data to another form (i.e. image),
-						which can be understood hy humans.</p>
+						which can be understood by humans.</p>
 						<p>Rendering can be quite complex process, depending on the nature
 						of the data and desired map look and feel.</p>
 					</section>
@@ -460,17 +450,17 @@
 								part of data.</li>
 							<li>configuration - determines how features will be drawn on the image,
 								i.e. colors, brushes, fonts, etc. It is common to place different
-								feature types in seperate layers.</li>
+								feature types in separate layers.</li>
 							<li>map properties - projection, envelope, file format.</li>
 						</ul>
 					</section>
 					<section>
-						<h3>Redering flow diagram</h3>
+						<h3>Rendering flow diagram</h3>
 						<img src="images/Rendering%20flow.png">
 					</section>
 					<section>
 						<h3>Where rendering happens</h3>
-						<p>Generaly it depends on type of application. For web maps,
+						<p>Generally it depends on type of application. For web maps,
 						we have following options.</p>
 						<ul>
 							<li>on the server - creating the base layer, which very complex
@@ -554,7 +544,7 @@
 							<li>Zoom in - more details, but smaller area is shown.</li>
 							<li>Zoom out - less detail, but larger area is shown.</li>
 						</ul>
-						<p>Map scale depends not only on zoom level, but on monitor DPI aswell.</p>
+						<p>Map scale depends not only on zoom level, but on monitor DPI as well.</p>
 					</section>
 					<section>
 						<h3>Tile pyramid</h3>
@@ -632,6 +622,7 @@ http://{tile_server}/{z}/{x}/{y}.png
 					</section>
 					<section>
 						<h3>Leaflet(js)</h3>
+						<img src="images/leaflet_logo.png">
 						<p>Leaflet is one of the leading JS libraries for interactive maps. It's simplicity and performance make
 						it an excellent choice for web and mobile apps with map support. </p>
 					</section>
@@ -639,12 +630,34 @@ http://{tile_server}/{z}/{x}/{y}.png
 						<h3>Leaflet features</h3>
 						<ul>
 							<li>Raster layers: tiles and WMS</li>
-							<li>Vector layers: markers, polylines, polygons, circles, and popups</li>
+							<li>Vector layers: polylines, polygons, circles, and popups</li>
+							<li>Markers and popups</li>
 							<li>GeoJSON data</li>
-							<li></li>
+							<li>Browser events handling</li>
+							<li>Heatmaps and choroplets</li>
 						</ul>
 					</section>
-				</section> 
+					<section>
+						<h3>Leaflet in action</h3>
+						<img class="displayimage" src="images/leaflet_in_action.png">
+					</section>
+					<section>
+						<h3>Heatmaps with Leaflet</h3>
+						<img class="displayimage" src="images/leaflet_heatmap.png">
+					</section>
+					<section>
+						<h3>Choroplets with Leaflet</h3>
+						<img class="displayimage" src="images/leaflet-choropleth.png">
+					</section>
+				</section>
+				<section>
+					<h3>Questions</h3>
+					<p>???</p>
+				</section>
+				<section>
+					<h3>The End</h3>
+					<p>Thank you!</p>
+				</section>
 			</div>
 
 		</div>
