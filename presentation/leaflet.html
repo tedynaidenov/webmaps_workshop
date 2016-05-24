@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+
+		<title>Interactive Web Maps (hands-on)</title>
+
+		<meta name="description" content="Interactive Web Maps, workshop hands-on">
+		<meta name="author" content="Teodor Naydenov">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<style>
+			img.displayimage {
+				max-height: 500px;
+				max-width: 700px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Interactive Web Maps</h1>
+					<h3>Hands-on</h3>
+					<p>
+						<small>Created by Teodor Naydenov and Hristo Yankov</small>
+					</p>
+				</section>
+				<section>
+					<h3>Basic HTML template</h3>
+				</section>
+				<section>
+					<section>
+					<h3>Let's make our first map with lealet</h3>
+						<ul>
+							<li>Include leaflet CSS</li>
+							<li>Include leaflet JS</li>
+							<li>Create div element as map container</li>
+							<li>Init leaflet with appropriate tile layer</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Leaflet CDN</h3>
+						<pre><code>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+						</code></pre>
+					</section>
+					<section>
+						<h3>Init map element</h3>
+						<pre><code>
+<div id="mapcontainer"></div>
+...
+var map = L.map('mapcontainer', {center:[42,23], zoom:5});
+						</code></pre>
+					</section>
+					<section>
+						<h3>Init tile layer</h3>
+						<pre><code>
+var url='http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png';
+L.tileLayer(url, {minZoom: 2, maxZoom: 16, }).addTo(map);
+						</code></pre>
+					</section>
+					<section>
+						<h3>Coordinates and projection</h3>
+						<p>Leaflet's API works with WGS84 coordinates. They can be expressed in following
+						formats:</p>
+						<pre><code>
+[42.55, 23.186]
+{lat:42.55, lon:23.186}
+{lon:23.186, lat:42.55}
+L.latLng(42.55, 23.186)
+						</code></pre>
+						<p>The default projetion is EPSG:3857 Web Mercator.</p>
+					</section>
+					<section>
+						<h3>Zoom level</h3>
+						<p>Zoom level 0 covers whole earth. For OpenStreetMap zoom can go up to 19. Map can be limit
+						within some range of zoom levels by leaflet.</p>
+						<p></p>
+					</section>
+					<section>
+						<h3>Have a taste of tile server</h3>
+						<p>As you can see from the example, the URL of tile server looks like this:</p>
+						<pre><code>
+http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png						
+						</code></pre>
+						<p>Replace {s}, {x}, {y}, {z} and give it a try in the browser.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Marker, lines and polygons</h3>
+					</section>
+					<section>
+						<h3>Let's add a marker</h3>
+						<p>Markers can be used to point to particular features of the map. A popup message can be bound to 
+						marker in order to show additional information.</p>
+						<pre><code>
+var marker = L.marker([42.66244256007217, 23.37338089942932]).addTo(map);
+marker.bindPopup("<b>TUES</b> is the BEST!<br>Технологическо училище електронни системи");						
+						</code></pre>
+					</section>
+					<section>
+						<h3>Utilize polygons</h3>
+						<pre><code>
+var poly = L.polygon([ [42.55, 22.8], 
+			[43.1, 23], 
+			[41.365, 21.72]],
+			[42.55, 22.8]
+			{fillColor:'#0023f2'});						
+						</code></pre>
+					</section>
+				</section>	
+			</div>
+		</div>
+			<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>	
+</html>

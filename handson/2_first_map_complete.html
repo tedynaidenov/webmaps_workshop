@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Your first web map</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
+    <style>
+        #mapcontainer { 
+			width:	600px;
+                	height: 600px;
+			}
+    </style>
+</head>
+<body>
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <div id="mapcontainer"></div>
+    <script>
+        var map = L.map('mapcontainer', {center:[42,23], zoom:5});
+        var url='http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png';
+        L.tileLayer(url, {minZoom: 2, maxZoom: 16, }).addTo(map);
+        
+        
+    </script>
+</body>
+</html>
+
