@@ -136,7 +136,45 @@ var poly = L.polygon([ [42.55, 22.8],
 			{fillColor:'#0023f2'});						
 						</code></pre>
 					</section>
-				</section>	
+				</section>
+				<section>
+					<section>
+						<h3>GeoJSON data</h3>
+						<p>How does GeoJSON looks like:</p>
+						<pre><code>
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [125.6, 10.1]
+  },
+  "properties": {
+    "name": "Dinagat Islands"
+  }
+}						
+						</code></pre>
+						<p>For more details have a look at <a href="geojson.org" target="_blank">geojson.org</a></p>
+					</section>
+					<section>
+						<h3>Leaflet support for GeoJSON</h3>
+						<pre><code>
+var data = { "type": "Feature",
+	"geometry": {
+    		"type": "Point",
+    		"coordinates": [125.6, 10.1]
+  	},
+  	"properties": {
+    		"name": "Dinagat Islands"
+  	}
+}						
+L.geoJson(data).addTo(map);									
+						</code></pre>
+					</section>
+					<section>
+						<h3>Prepare GeoJSON data</h3>
+						<p>An excellent tool:<a href="geojson.io" target="_blank">geojson.io</a></p>
+					</section>
+				</section>
 			</div>
 		</div>
 			<script src="lib/js/head.min.js"></script>
