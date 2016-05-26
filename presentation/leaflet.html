@@ -174,6 +174,48 @@ L.geoJson(data).addTo(map);
 						<h3>Prepare GeoJSON data</h3>
 						<p>An excellent tool:<a href="geojson.io" target="_blank">geojson.io</a></p>
 					</section>
+					<section>
+						<h3>Retrieve external file with GeoJSON file</h3>
+						<p>Retrieving file with JQuery is very simple: just use $.get() or $.ajax()
+						function calls. This works if file is located on the same domain, where html page
+						is located.</p>
+						<p>If data file is located on other domain, we can use CORS or JSONP</p>
+					</section>
+					<section>
+						<h3>JSONP</h3>
+						<p> Define JS function that handles data to be received. Add explicit call 
+							to this function around the data in the external data file:</p>
+						<pre><code>
+jsonCallback( 
+{{"type": "FeatureCollection", "features":  ....}
+);
+						</code></pre>
+					</section>
+					<section>
+						<h3>JSONP with jQuery</h3>
+						<p>Ajax call can be done in following way:</p>
+						<pre><code>
+$.ajax(	{type: 'GET',
+	crossDomain: true,
+	dataType: 'jsonp',
+	jsonpCallback: 'jsonCallback',
+	url:"sofia_regions.geojson", 
+	success:function(data, status) {
+      		  	<!-- process data -->			
+	}});
+						</code></pre>
+					</section>
+										  
+				</section>
+				<section>
+					<section>
+						<h3>Geo data in the Cloud</h3>
+						<p>There are several cloud providers offering flexible platform for handling geospatial
+						data. As an example have a loot at <a href="http://cartodb.com" target="_blank">CartoDB</a></p>
+					</section>
+				</section>
+				<section>
+					<p>Let's implement a real web map project.</p>
 				</section>
 			</div>
 		</div>
