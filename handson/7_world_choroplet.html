@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sofia regions</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css">
+    <style>
+        #mapcontainer { 
+			width:600px;
+                	height: 600px;
+	}
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    
+    <div id="mapcontainer"></div>
+    <script>
+    function getColor(d) {
+       if (d > 250000000) return '#800026' ;
+       if (d > 200000000) return '#BD0026' ;
+       if (d >  50000000) return '#E31A1C' ;
+       if (d >  10000000) return '#FC4E2A' ;
+       if (d >   5000000) return '#FD8D3C' ;
+       if (d >    100000) return '#FEB24C' ;
+       if (d >     10000) return '#FED976' ;
+            return '#FFEDA0';
+    }
+        
+    function style_polygon(feature) {
+        return {
+            fillColor: getColor(feature.properties.pop_est),
+            fillOpacity: 0.7,
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3'
+        }     
+    }
+	$(document).ready(function() {
+		var map = L.map('mapcontainer', {center:[1,2], zoom:2});
+        var url='http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png';
+       	L.tileLayer(url, {minZoom: 1, maxZoom: 16, }).addTo(map); 
+        
+        
+        
+        $.getJSON('https://tedynaidenov.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT * from world_small', function(data){
+            L.geoJson(data, {style: style_polygon}).addTo(map);
+            console.log(data);
+        });
+            
+	});
+    </script>
+    <!-- 373225eb2c4687ff86b4956ee565ad0600e57619 -->
+</body>
+</html>
+
